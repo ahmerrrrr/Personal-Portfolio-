@@ -55,11 +55,7 @@
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
         }
 
-        /* border-bottom: .1rem solid rgba(0, 0, 0, .2);
-        } */
-
         .header.scrolled {
-
             background: rgba(31, 36, 45, 0.9);
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
         }
@@ -206,7 +202,6 @@
                 text-align: center !important;
             }
         }
-
 
         .heading {
             text-align: center;
@@ -389,12 +384,31 @@
             }
 
             .home {
+                height: auto;
+                padding-top: 120px;
                 flex-direction: column;
+                text-align: center;
             }
 
             .homeimg img {
-                width: 70vw;
-                margin-top: 4rem;
+                max-width: 70vw;
+                margin-top: 20px;
+                margin-right: 0;
+                animation: floatImageMobile 4s ease-in-out infinite;
+            }
+
+            @keyframes floatImageMobile {
+                0% {
+                    transform: translateY(0);
+                }
+
+                50% {
+                    transform: translateY(-1rem);
+                }
+
+                100% {
+                    transform: translateY(0);
+                }
             }
 
             .about {
@@ -587,6 +601,6 @@
         // Typed.js
         var typed = new Typed(".multiple-text", { strings: ["Web Developer", "Frontend Developer", "Web Designer"], typeSpeed: 100, backSpeed: 100, backDelay: 1000, loop: true });
     </script>
-</body>
 
+</body>
 </html>
