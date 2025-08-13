@@ -28,7 +28,6 @@
 
         body {
             overflow-x: hidden;
-
             background: #1f242d;
             color: #fff;
         }
@@ -198,13 +197,17 @@
             gap: 10rem;
         }
 
-    
+        @media (max-width: 768px) {
+            .aboutcontent {
+                text-align: center;
+            }
 
-    .about img {
-        width: 70vw;
-        margin-top: 4rem;
-    }
-}
+            .aboutcontent h2 {
+                text-align: center !important;
+            }
+        }
+
+
         .heading {
             text-align: center;
             font-size: 4.1rem;
@@ -586,9 +589,4 @@
     </script>
 </body>
 
-
 </html>
-
-
-
-
