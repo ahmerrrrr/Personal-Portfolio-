@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <title>Ahmer - Developer Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: "Poppins", sans-serif;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+            text-decoration: none;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+        }
+
+        html {
+            scrollbar-width: none;
+            overflow-x: hidden;
+        }
+
+        body {
+            background: #1f242d;
+            color: #fff;
+        }
+
+        section {
+            min-height: 100vh;
+            padding: 10rem 9% 2rem;
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 10%;
+            background-color: #1f242d;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            transition: 0.3s ease;
+        }
+
+        .header.sticky {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        /* border-bottom: .1rem solid rgba(0, 0, 0, .2);
+        } */
+
+        .header.scrolled {
+
+            background: rgba(31, 36, 45, 0.9);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .logo {
+            font-size: 25px;
+            color: #fff;
+            font-weight: 600;
+            cursor: default;
+        }
+
+        #menuicon {
+            font-size: 28px;
+            color: #0ef;
+            cursor: pointer;
+            display: none;
+        }
+
+        .navbar a {
+            display: inline-block;
+            font-size: 18px;
+            color: #fff;
+            font-weight: 501;
+            margin-left: 35px;
+            transition: .3s;
+        }
+
+        .navbar a:hover,
+        .navbar a.active {
+            color: #0ef;
+        }
+
+        .home {
+            position: relative;
+            width: 100%;
+            height: 90vh;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 70px 10% 0;
+        }
+
+        .homecontent {
+            max-width: 600px;
+        }
+
+        .homecontent h1 {
+            font-size: 56px;
+            font-weight: 700;
+            margin: -3px 0;
+        }
+
+        .homecontent h3 {
+            font-size: 32px;
+            font-weight: 700;
+        }
+
+        .homecontent h3:nth-of-type(2) {
+            margin-bottom: 30px;
+        }
+
+        .homecontent p {
+            font-size: 16px;
+        }
+
+        span {
+            color: #0ef;
+        }
+
+        .homeimg img {
+            margin-top: 5px;
+            max-width: 530px;
+            margin-right: 70px;
+            animation: floatImage 4s ease-in-out infinite;
+        }
+
+        @keyframes floatImage {
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-2.4rem);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        .socialmedia a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            background: transparent;
+            border: 2px solid #0ef;
+            border-radius: 50%;
+            font-size: 20px;
+            color: #0ef;
+            margin: 30px 15px 30px 0;
+            transition: .5s ease;
+        }
+
+        .socialmedia a:hover {
+            background: #0ef;
+            color: #1f242d;
+            box-shadow: 0 0 20px #0ef;
+        }
+
+        .btn {
+            margin-top: 10px;
+            display: inline-block;
+            padding: 12px 28px;
+            background: #0ef;
+            border-radius: 40px;
+            box-shadow: 0 0 10px #0ef;
+            font-size: 16px;
+            color: #1f242d;
+            letter-spacing: 1px;
+            font-weight: 600;
+            transition: .5s ease;
+        }
+
+        .btn:hover {
+            box-shadow: none;
+        }
+
+        .about {
+            display: flex;
+            background-color: #323946;
+            align-items: center;
+            justify-content: center;
+            gap: 10rem;
+        }
+
+        .heading {
+            text-align: center;
+            font-size: 4.1rem;
+        }
+
+        .aboutcontent h2 {
+            text-align: left;
+            line-height: 1.2;
+        }
+
+        .aboutcontent h3 {
+            font-size: 2rem;
+        }
+
+        .aboutcontent p {
+            font-size: 1rem;
+            margin: 2rem 0 3rem;
+        }
+
+        .services h2 {
+            margin-bottom: 5rem;
+        }
+
+        .servicescontainer {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .servicescontainer .servicesbox {
+            flex: 1 1 30rem;
+            background-color: #323946;
+            padding: 3rem 2rem 4rem;
+            border-radius: 2rem;
+            text-align: center;
+            border: .2rem solid #323946;
+            transition: .5s ease;
+        }
+
+        .servicescontainer .servicesbox:hover {
+            border-color: #0ef;
+            transform: scale(1.02);
+        }
+
+        .servicesbox h3 {
+            font-size: 2.6rem;
+        }
+
+        .servicesbox p {
+            font-size: 1.4rem;
+            margin: 38px 0;
+        }
+
+        .servicesbox .icon {
+            display: block;
+            font-size: 3.2rem;
+            color: #0ef;
+            margin: 0 0 1rem 0;
+        }
+
+        #projects .servicesbox {
+            background-color: #1f242d;
+        }
+
+        .contact h2 {
+            margin-bottom: 3rem;
+        }
+
+        .contact form {
+            background: #2a2f3a;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 0 15px rgba(0, 238, 255, 0.2);
+            max-width: 600px;
+            margin: 2rem auto;
+        }
+
+        .contact form .inputbox {
+            margin-bottom: 20px;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .contact form .inputbox input,
+        .contact form textarea {
+            flex: 1;
+            padding: .8rem 1rem;
+            font-size: 1rem;
+            color: #fff;
+            background-color: #323946;
+            border-radius: .5rem;
+            border: 1px solid transparent;
+            transition: .3s;
+        }
+
+        .contact form .inputbox input:focus,
+        .contact form textarea:focus {
+            border-color: #0ef;
+            box-shadow: 0 0 8px #0ef;
+        }
+
+        .contact form textarea {
+            width: 100%;
+            resize: none;
+            min-height: 120px;
+        }
+
+        footer {
+            background: transparent;
+            color: #fff;
+            text-align: center;
+            padding: 2rem 0 1rem;
+            font-size: 12px;
+            position: relative;
+            margin-top: 2rem;
+        }
+
+        @media(max-width:1200px) {
+            html {
+                font-size: 55%;
+            }
+        }
+
+        @media(max-width:991px) {
+            .header {
+                padding: 2rem 3%;
+            }
+        }
+
+        section {
+            padding: 10rem 3% 2rem;
+        }
+
+        .services {
+            padding-bottom: 7rem;
+        }
+
+        .portfolo {
+            padding-bottom: 7rem;
+        }
+
+        .contact {
+            min-height: auto;
+        }
+
+        .footer {
+            padding: 2rem 3%;
+        }
+
+        @media(max-width:768px) {
+            #menuicon {
+                display: block;
+            }
+
+            .navbar {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                padding: 1rem 3%;
+                background: #1f242d;
+                border-top: .1rem solid rgba(0, 0, 0, .2);
+                box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
+                display: none;
+                flex-direction: column;
+            }
+
+            .navbar.active {
+                display: flex;
+            }
+
+            .navbar a {
+                display: block;
+                font-size: 2rem;
+                margin: 1.5rem 0;
+            }
+
+            .home {
+                flex-direction: column;
+            }
+
+            .homeimg img {
+                width: 70vw;
+                margin-top: 4rem;
+            }
+
+            .about {
+                flex-direction: column-reverse;
+            }
+
+            .about img {
+                width: 70vw;
+                margin-top: 4rem;
+            }
+        }
+
+        @media(max-width:617px) {
+            .portfoliocontainer {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media(max-width:450px) {
+            html {
+                font-size: 50%;
+            }
+        }
+
+        @media(max-width:365px) {
+            .homeimg img {
+                width: 90vw;
+            }
+
+            .footer p {
+                text-align: center;
+                margin-top: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header" id="header">
+        <a href="#home" class="logo">Ahmer's Portfolio</a>
+        <div id="menuicon" class="bx bx-menu"></div>
+        <nav class="navbar">
+            <a href="#home" class="active">Home</a>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact Me</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="home" id="home">
+            <div class="homecontent">
+                <h3>Hello, Its Me</h3>
+                <h1>Ahmer</h1>
+                <h3>And I'm a <span class="multiple-text"></span></h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                <div class="socialmedia">
+                    <a href="#"><i class='bx bxl-facebook'></i></a>
+                    <a href="#"><i class='bx bxl-twitter'></i></a>
+                    <a href="#"><i class='bx bxl-instagram-alt'></i></a>
+                    <a href="#"><i class='bx bxl-linkedin'></i></a>
+                </div>
+                <a href="#" class="btn">Download Resume</a>
+            </div>
+            <div class="homeimg">
+                <img src="bg.png" alt="">
+            </div>
+        </section>
+
+        <section class="about" id="about">
+            <div class="aboutimg">
+                <img src="bg4.png" alt="">
+            </div>
+            <div class="aboutcontent">
+                <h2 class="heading">About <span>Me</span></h2>
+                <h3>Frontend Developer</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio eaque nihil quas? Lorem ipsum dolor sit
+                    amet consectetur adipisicing elit. Magni eaque ad sequi.</p>
+                <a href="#" class="btn">Read More</a>
+            </div>
+        </section>
+
+        <section class="services" id="services">
+            <h2 class="heading">Our <span>Services</span></h2>
+            <div class="servicescontainer">
+                <div class="servicesbox">
+                    <i class="bx bx-code-alt icon"></i>
+                    <h3>Web Development</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <a href="#" class="btn">Read More</a>
+                </div>
+                <div class="servicesbox">
+                    <i class="bx bx-palette icon"></i>
+                    <h3>Graphic Designer</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <a href="#" class="btn">Read More</a>
+                </div>
+                <div class="servicesbox">
+                    <i class="bx bx-brush icon"></i>
+                    <h3>Web Designer</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <a href="#" class="btn">Read More</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="services" id="projects" style="background-color:#323946;">
+            <h2 class="heading">My <span>Projects</span></h2>
+            <div class="servicescontainer">
+                <div class="servicesbox">
+                    <i class="bx bx-window-alt icon"></i>
+                    <h3>Portfolio Website</h3>
+                    <p>A personal portfolio website showcasing my skills.</p>
+                    <a href="#" class="btn">View Project</a>
+                </div>
+                <div class="servicesbox">
+                    <i class="bx bx-store icon"></i>
+                    <h3>E-Commerce Platform</h3>
+                    <p>An online store project with cart functionality.</p>
+                    <a href="#" class="btn">View Project</a>
+                </div>
+                <div class="servicesbox">
+                    <i class="bx bx-edit-alt icon"></i>
+                    <h3>Blog Website</h3>
+                    <p>A blogging platform with an interactive UI.</p>
+                    <a href="#" class="btn">View Project</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact" id="contact">
+            <h2 class="heading">Contact <span>Me!</span></h2>
+            <form action="#">
+                <div class="inputbox">
+                    <input type="text" placeholder="Full Name">
+                    <input type="email" placeholder="Email Address">
+                </div>
+                <div class="inputbox">
+                    <input type="number" placeholder="Mobile Number">
+                    <input type="text" placeholder="Email Subject">
+                </div>
+                <textarea placeholder="Your Message"></textarea>
+                <center><input type="submit" value="Send Message" class="btn" style="margin-top:30px;"></center>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer">
+            Copyright &copy; ahmersportfolio.com │ All rights reserved
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script>
+        // Mobile menu toggle
+        let menuicon = document.querySelector('#menuicon');
+        let navbar = document.querySelector('.navbar');
+        menuicon.onclick = () => { menuicon.classList.toggle('bx-x'); navbar.classList.toggle('active'); };
+
+        // Smooth scroll & active link
+        let sections = document.querySelectorAll('section');
+        let navlinks = document.querySelectorAll('header nav a');
+        window.onscroll = () => {
+            let top = window.scrollY;
+            sections.forEach(sec => {
+                let offset = sec.offsetTop - 150;
+                let height = sec.offsetHeight;
+                let id = sec.getAttribute('id');
+                if (top >= offset && top < offset + height) {
+                    navlinks.forEach(link => link.classList.remove('active'));
+                    document.querySelector('header nav a[href*="' + id + '"]').classList.add('active');
+                }
+            });
+            let header = document.querySelector('header');
+            header.classList.toggle('sticky', window.scrollY > 100);
+            menuicon.classList.remove('bx-x');
+            navbar.classList.remove('active');
+        };
+
+        // ScrollReveal
+        ScrollReveal({ reset: true, distance: '80px', duration: 2000, delay: 200 });
+        ScrollReveal().reveal('.homecontent, .heading', { origin: 'top' });
+        ScrollReveal().reveal('.homeimg, .servicescontainer, .contact form', { origin: 'bottom' });
+        ScrollReveal().reveal('.homecontent h1, .aboutimg', { origin: 'left' });
+        ScrollReveal().reveal('.homecontent p, .aboutcontent', { origin: 'right' });
+
+        // Typed.js
+        var typed = new Typed(".multiple-text", { strings: ["Web Developer", "Frontend Developer", "Web Designer"], typeSpeed: 100, backSpeed: 100, backDelay: 1000, loop: true });
+    </script>
+</body>
+
+</html>
